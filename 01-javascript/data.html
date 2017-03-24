@@ -37,7 +37,7 @@
     }
     // All male users between 18 and 30
     function male18to30() {
-        var filteredUsers = filteredUsers = users.filter(function(user) {
+        var filteredUsers = users.filter(function(user) {
             return user.gender == "Male" && user.age <= 30 && user.age >= 18;
         });
         return filteredUsers;
@@ -68,15 +68,98 @@
 
     // - Map
     // Display user Name first and last
+    function userFullNames() {
+        var mappedUsers = users.map(function(user) {
+                return user.first_name + " " + user.last_name
+        });
+        return mappedUsers;
+    }
     // Display first name and date formatted: mm/dd/yy
+    function firstNameAndDate() {
+        var currentDate = new Date();
+        var mappedUsers = users.map(function(user) {
+            if (user.date != null) {
+                var userDate = new Date(user.date * 1000);
+                return user.first_name + " " + userDate.getMonth() + "/" + userDate.getDay() + "/" + userDate.getFullYear();
+            }
+            else {
+                return user.first_name + " No Date";
+            }
+        });
+        return mappedUsers;
+    }
     // Display male users as: First, Last, gender, age
+    function maleUsers() {
+        var mappedUsers = users.map(function(user) {
+            if(user.gender == "Male") {
+                return user.first_name + " " + user.last_name + " " + user.gender +  " " + user.age
+            }
+            return false
+        });
+        return mappedUsers;
+    }
     // Display users whos birthday is today as: Happy Birthday firstName lastName
-
+    function birthdayWish() {
+        var currentDate = new Date();
+        var mappedUsers = users.map(function(user) {
+            if (user.date != null) {
+                var userDate = new Date(user.date * 1000);
+                if (userDate.getMonth() == currentDate.getMonth() && userDate.getDay() == currentDate.getDay()) {
+                    return "Happy Birthday " + user.first_name + " " + user.last_name;
+                }
+            }
+            return false;
+        });
+        return mappedUsers;
+    }
     // Reduce
     // Average the age of all users
+    function avgUserAge() {
+        // Count the number of users whose age is null
+        var nullAgeCount = 0
+        var userAge = users.reduce(function(total, user) {
+            if (user.age == null) {
+                nullAgeCount += 1;
+                return total
+            }
+            else {
+                return total = total + user.age;
+            }
+        }, 0);
+        var avgAge = userAge / (users.length - nullAgeCount);
+        return avgAge;
+    }
 
     // Extra Challenges
     // Sort all users by gender
+    function genderUsers() {
+
+        var maleUsers = [];
+        var femaleUsers = [];
+
+        var mappedUsers = users.map(function(user) {
+            if(user.gender == "Male") {
+                return maleUsers.push(user)
+            }
+            else if (user.gender == "Female") {
+                return femaleUsers.push(user)
+            }
+            else {
+                return false;
+            }
+        });
+
+        return maleUsers.concat(femaleUsers);
+    }
+
+    //or
+    //users.sort
+
     // Sort all users by age
+    function sortByAge() {
+        return users.sort(function(a, b) {
+            return a.age - b.age;
+        });
+    }
 
 </script>
