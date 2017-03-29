@@ -132,28 +132,25 @@
         - fontSize
         - fontFamily
 
-    */
+    props.name = somethign
+    props.id = 111
+    props.age = 33
 
-    // const pullParams = (styleObj) => {
-    //     var keys = Object.keys(styleObj);
-    //     var values = Object.values(styleObj);
-    //     for (var i = 0; i < keys.length; i++) {
-    //         const [keys[i]] = values[i];
-    //     }
-    //     return keys, values;
-    // }
+    ({name, id}) {
+
+    }
+
+    */
 
     const s = {color:'red', fontSize:18};
 
-    console.log(pullParams(s));
-
     const styleTitle = ({color="#000", fontSize=16, fontFamily="Helvetica"}) => {
-        color // = red
-        fontSize // = 18
-        fontFamily // "Helvetica"
+        var color = color // = red
+        var fontSize = fontSize // = 18
+        var fontFamily = fontFamily // "Helvetica"
     };
 
-    styleTitle(s);
+    console.log(styleTitle(s));
 
     const Profile = (props) => {
         const first = props.first;
