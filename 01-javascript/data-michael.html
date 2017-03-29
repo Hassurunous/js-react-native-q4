@@ -12,11 +12,11 @@
             }
             return false;
         });
-        // *** Need some output? 
+        // *** Need some output?
     }
     console.log("- filter ");
-    
-    
+
+
     // All users above age 30
     function filterUsersByAge(age, lessThanOrEqualTo) {
         //age is the age to filter by
@@ -35,7 +35,7 @@
         }
         return filteredUsers;
     }
-    
+
     // All male users between 18 and 30
     function male18to30() {
         var filteredUsers = users.filter(function(user) {
@@ -45,8 +45,8 @@
     }
     console.log("- male 18 to 30");
     console.log(male18to30());
-    
-    
+
+
     // All female users who joined after 2016 (all dates 2017)
     function femaleAfter2016() {
         var filteredUsers = users.filter(function(user) {
@@ -60,7 +60,7 @@
     }
     console.log("- female after 2016");
     console.log(femaleAfter2016());
-    
+
     // Imagine the date is a birthday. Find all the users who's birthday is today.
     function todayBirthday() {
         var currentDate = new Date();
@@ -87,7 +87,7 @@
     }
     console.log("- First and last");
     console.log(userFullNames());
-    
+
     // Display first name and date formatted: mm/dd/yy
     function firstNameAndDate() {
         var currentDate = new Date();
@@ -104,7 +104,7 @@
     }
     console.log("- first and date");
     console.log(firstNameAndDate());
-    
+
     // Display male users as: First, Last, gender, age
     function maleUsers() {
         var maleUsers = filterUsersByGender("Male");
@@ -116,8 +116,8 @@
     }
     //console.log("- male users");
     //console.log(maleUsers());
-    
-    
+
+
     // Display users whos birthday is today as: Happy Birthday firstName lastName
     function birthdayWish() {
         var currentDate = new Date();
@@ -135,7 +135,7 @@
     }
     console.log("- happy birthday");
     console.log(birthdayWish());
-    
+
     // Reduce
     // Average the age of all users
     function avgUserAge() {
@@ -153,10 +153,10 @@
         var avgAge = userAge / (users.length - nullAgeCount);
         return avgAge;
     }
-    
+
     console.log("- average age");
     console.log(avgUserAge());
-    
+
     // Extra Challenges
     // Imagine the date is the date joined. Calculate the number of total hours all since all users have joined.
     // Sort all users by gender
